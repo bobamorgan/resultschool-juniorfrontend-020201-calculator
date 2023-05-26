@@ -90,7 +90,14 @@ export const Calculator = () => {
 
         // Число
         if (!isNaN(keyValue)) {
-            newOutput = output.value === '0' ? keyValue : output.value + keyValue;
+            // Проверка на лишний ноль в начале строки или перед оператором
+            const replaceZero = isNaN(output.value[output.value.length - 2]) && output.value[output.value.length - 1] === '0';
+            if (replaceZero) {
+                const subOutput = output.value.substring(0, output.value.length - 1);
+                newOutput = subOutput + keyValue;
+            } else {
+                newOutput = output.value + keyValue;
+            }
             isResult = false;
         }
         // Оператор
