@@ -1,10 +1,10 @@
-import './App.css';
+import './app.css';
 import { Calculator } from './calculator';
 
 export const App = () => {
     return (
         <div className="App">
-            <Calculator/>
+            <Calculator />
         </div>
     );
 };
